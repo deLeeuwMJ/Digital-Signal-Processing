@@ -1,3 +1,5 @@
+package synth
+
 data class Metronome(var bpm: Int = 128) {
     val millisPerBeat: Long
         get() = (secsPerBeat * 1000).toLong()

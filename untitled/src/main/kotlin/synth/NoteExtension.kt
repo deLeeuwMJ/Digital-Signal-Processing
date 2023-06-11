@@ -1,3 +1,5 @@
+package synth
+
 fun Int.toMusicalRepresentation() : String {
     val octave = (this / 12) - 1
     val noteName = when (this % 12) {

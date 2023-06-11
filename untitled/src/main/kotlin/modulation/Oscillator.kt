@@ -1,7 +1,9 @@
+package modulation
+
 import kotlin.math.PI
 import kotlin.math.sin
 
-abstract class Oscillator(val frequency: Double) {
+abstract class Oscillator(var frequency: Double) {
     abstract fun generateSample(time: Double, amplitude: Double): Double
 }
 

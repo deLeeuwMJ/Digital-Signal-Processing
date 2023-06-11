@@ -1,3 +1,5 @@
+package synth
+
 import java.math.RoundingMode
 import javax.sound.midi.Sequence
 import javax.sound.midi.ShortMessage

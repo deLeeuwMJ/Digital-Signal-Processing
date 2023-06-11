@@ -1,3 +1,5 @@
+package synth
+
 data class Note(
     val beat: Double,
     val note: Int,

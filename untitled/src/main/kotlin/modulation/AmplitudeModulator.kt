@@ -1,3 +1,5 @@
+package modulation
+
 class AmplitudeModulator(private val carrier: Oscillator, private val modulation: Oscillator) {
     fun generateWaveform(duration: Double, sampleRate: Double): DoubleArray {
         val numSamples = (duration * sampleRate).toInt()

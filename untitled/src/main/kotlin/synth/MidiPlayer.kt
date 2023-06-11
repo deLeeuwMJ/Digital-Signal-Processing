@@ -1,3 +1,5 @@
+package synth
+
 import kotlinx.coroutines.CoroutineScope
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
@@ -5,8 +7,8 @@ import javax.sound.sampled.AudioFormat
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.SourceDataLine
 
-class MidiPlayer(oscillator: Oscillator, scope: CoroutineScope, notes: List<Note> = emptyList(), metronome: Metronome = Metronome()) :
-    Player(oscillator, scope, notes, metronome) {
+class MidiPlayer(waveformGenerator: WaveformGenerator, scope: CoroutineScope, notes: List<Note> = emptyList(), metronome: Metronome = Metronome()) :
+    Player(waveformGenerator, scope, notes, metronome) {
 
     override fun playNote(note: Note, playAt: LocalDateTime) {
         val midiNote = note.note
@@ -28,3 +30,4 @@ class MidiPlayer(oscillator: Oscillator, scope: CoroutineScope, notes: List<Note
         }
     }
 }
+

@@ -1,3 +1,5 @@
+package synth
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -9,7 +11,7 @@ import kotlin.experimental.and
 import kotlin.math.pow
 
 abstract class Player(
-    private val oscillator: Oscillator,
+    private val waveformGenerator: WaveformGenerator,
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.Default),
     private val notes: List<Note> = emptyList(),
     protected val metronome: Metronome = Metronome()
@@ -42,13 +44,13 @@ abstract class Player(
 
         val buffer = ByteArray(numSamples * 2)
 
-//        for (i in 0 until numSamples) {
-//            val t = i / sampleRate
-//            val value = oscillator.generateSample(frequency, t)
-//
-//            buffer[i * 2] = (value and 0xff).toByte()
-//            buffer[i * 2 + 1] = (value.toInt() shr 8 and 0xff).toByte()
-//        }
+        for (i in 0 until numSamples) {
+            val t = i / sampleRate
+            val value = waveformGenerator.generateSample(frequency, t)
+
+            buffer[i * 2] = (value and 0xff).toByte()
+            buffer[i * 2 + 1] = (value.toInt() shr 8 and 0xff).toByte()
+        }
 
         return buffer
     }
