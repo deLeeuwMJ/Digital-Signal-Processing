@@ -5,8 +5,8 @@ import javax.sound.sampled.AudioFormat
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.SourceDataLine
 
-class MidiPlayer(waveForm: WaveformGenerator, scope: CoroutineScope, notes: List<Note> = emptyList(), metronome: Metronome = Metronome()) :
-    Player(waveForm, scope, notes, metronome) {
+class MidiPlayer(oscillator: Oscillator, scope: CoroutineScope, notes: List<Note> = emptyList(), metronome: Metronome = Metronome()) :
+    Player(oscillator, scope, notes, metronome) {
 
     override fun playNote(note: Note, playAt: LocalDateTime) {
         val midiNote = note.note
