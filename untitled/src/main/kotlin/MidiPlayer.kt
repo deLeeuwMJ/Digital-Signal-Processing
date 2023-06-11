@@ -10,6 +10,7 @@ class MidiPlayer(waveForm: WaveformGenerator, scope: CoroutineScope, notes: List
 
     override fun playNote(note: Note, playAt: LocalDateTime) {
         val midiNote = note.note
+        println("Pressed: ${midiNote.toMusicalRepresentation()}")
 
         val format = AudioFormat(44100f, 16, 1, true, false)
         val line: SourceDataLine = AudioSystem.getSourceDataLine(format)

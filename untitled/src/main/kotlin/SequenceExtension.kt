@@ -11,8 +11,6 @@ fun Sequence.toNotes(): List<Note> {
                     val command = message.command
                     val note = message.data1
                     val amplitude = message.data2
-                    println("Tick ${event.tick}, command: $command, data1: $note, data2: $amplitude")
-
                     if (command == ShortMessage.NOTE_ON) {
                         val beat = (event.tick / this.resolution.toDouble())
                             .toBigDecimal().setScale(2, RoundingMode.HALF_UP)
